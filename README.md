@@ -1,7 +1,23 @@
 
-# **Financial Market CLI**
+# **Sheldon CLI**
 
-The **Financial Market CLI** is a lightweight, command-line application that fetches stock market data using the Alpha Vantage API. It provides real-time or near real-time stock information in JSON format.
+SHELDON:
+   Stock
+   Handling and
+   Evaluation
+   Library for
+   Data
+   Operations and
+   Navigation
+
+Concept:
+
+**SHELDON** is a command-line interface (CLI) tool aimed at helping users analyze, manage, and navigate financial data. It could support tasks like:
+	•	Fetching and analyzing stock prices.
+	•	Evaluating portfolio performance.
+	•	Navigating datasets or APIs related to financial markets.
+	•	Performing computations like ROI, CAGR, or risk assessment.
+
 
 ---
 
