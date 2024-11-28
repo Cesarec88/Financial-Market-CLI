@@ -3,14 +3,13 @@
 
 SHELDON: 'Stock Handling and Evaluation Library for Data Operations and Navigation'
 
-Concept:
+## **Concept**
 
-**SHELDON** is a command-line interface (CLI) tool aimed at helping users analyze, manage, and navigate financial data. It could support tasks like:
+**SHELDON** is a command-line interface (CLI) tool aimed at helping users analyze, manage, and navigate financial data. It supports tasks like:
 - Fetching and analyzing stock prices.
 - Evaluating portfolio performance.
 - Navigating datasets or APIs related to financial markets.
 - Performing computations like ROI, CAGR, or risk assessment.
-
 
 ---
 
@@ -50,31 +49,44 @@ Concept:
 
 4. Build the application:
    ```bash
-   go build -o sheldon cmd/main.go
+   go build -o sheldon main.go
    ```
 
 ---
 
 ## **Usage**
 
-Run the CLI with the `-symbol` flag to query stock data:
-```bash
-./sheldon -symbol=<stock_symbol>
-```
+Sheldon uses the **Cobra CLI framework** to provide a modular and extensible command-line interface.
 
-### **Example**
-```bash
-./sheldon -symbol=IBM
-```
-Output:
-```json
-{
-  "Global Quote": {
-    "01. symbol": "IBM",
-    "05. price": "123.45"
-  }
-}
-```
+### Available Commands
+
+1. **`fetch`**: Fetch stock data (latest or historical).
+   - **Flags**:
+     - `--ticker`: The stock ticker to query (required).
+     - `--limit`: Number of historical elements to return (default: 1 for the latest data).
+     - `--delta`: Time interval for historical data (e.g., `1min`, `daily`, `weekly`, `monthly`).
+
+### Examples
+
+1. Fetch the latest stock quote:
+   ```bash
+   ./sheldon fetch --ticker=IBM
+   ```
+   Output:
+   ```json
+   {
+     "Global Quote": {
+       "01. symbol": "IBM",
+       "05. price": "123.45"
+     }
+   }
+   ```
+
+2. Fetch historical data for a stock:
+   ```bash
+   ./sheldon fetch --ticker=IBM --limit=5 --delta=daily
+   ```
+   Output: JSON containing 5 daily historical entries.
 
 ---
 
@@ -98,24 +110,48 @@ ok  	sheldon/internal/handler  0.XXXs
 ```
 sheldon/
 │
-├── cmd/                  # Command-line interface
-│   └── main.go           # Entry point for the CLI
+├── cmd/                          # Cobra commands
+│   ├── root.go                   # Root command for the CLI
+│   └── fetch.go                  # Fetch command implementation
 │
-├── internal/             # Internal packages
-│   ├── api/              # API client implementations
-│   │   └── client.go     # Core API client logic
+├── internal/                     # Internal packages
+│   ├── api/                      # API client implementations
+│   │   └── client.go             # Core API client logic
+|   |   └── client_test.go        # Test Core API client logic
 │   │
-│   ├── config/           # Configuration management
-│   │   └── config.go     # Loads environment variables and settings
+│   ├── config/                   # Configuration management
+│   │   └── config.go             # Loads environment variables and settings
+│   │   └── config_test.go        # Test Loads environment variables and settings
 │   │
-│   └── handler/          # Query handling logic
-│       └── query_handler.go # Processes stock queries
+│   └── handler/                  # Query handling logic
+│       └── query_handler.go      # Processes stock queries
+│       └── query_handler_test.go # Test Processes stock queries
 │
-├── .env                  # Environment file for sensitive settings
-├── go.mod                # Go module definition
-├── go.sum                # Dependency tracking
-└── README.md             # Project documentation
+├── .env                          # Environment file for sensitive settings
+├── go.mod                        # Go module definition
+├── go.sum                        # Dependency tracking
+└── README.md                     # Project documentation
 ```
+
+---
+
+## **Cobra CLI Framework**
+
+Sheldon uses the [Cobra](https://github.com/spf13/cobra) framework for building its command-line interface.
+
+### **Why Cobra?**
+- **Modular Design**: Easy to add new commands.
+- **Built-in Help**: Automatically generates `help` commands for users.
+- **Community Support**: A popular framework in the Go ecosystem.
+
+### **Adding New Commands**
+To add a new subcommand:
+1. Use the `cobra-cli` tool:
+   ```bash
+   cobra-cli add <command-name>
+   ```
+2. Implement the command logic in the generated file (e.g., `cmd/<command-name>.go`).
+3. Register the command in `cmd/root.go` with `rootCmd.AddCommand(<command-name>)`.
 
 ---
 
@@ -140,3 +176,4 @@ Contributions are welcome! Feel free to open issues or submit pull requests to i
 ## **Acknowledgments**
 - [Alpha Vantage](https://www.alphavantage.co/) for providing the stock market data API.
 - [Go](https://golang.org/) for powering this application.
+- [Cobra](https://github.com/spf13/cobra) for its robust CLI framework.
