@@ -1,22 +1,15 @@
 
 # **Sheldon CLI**
 
-SHELDON:
-   Stock
-   Handling and
-   Evaluation
-   Library for
-   Data
-   Operations and
-   Navigation
+SHELDON: 'Stock Handling and Evaluation Library for Data Operations and Navigation'
 
 Concept:
 
 **SHELDON** is a command-line interface (CLI) tool aimed at helping users analyze, manage, and navigate financial data. It could support tasks like:
-	•	Fetching and analyzing stock prices.
-	•	Evaluating portfolio performance.
-	•	Navigating datasets or APIs related to financial markets.
-	•	Performing computations like ROI, CAGR, or risk assessment.
+- Fetching and analyzing stock prices.
+- Evaluating portfolio performance.
+- Navigating datasets or APIs related to financial markets.
+- Performing computations like ROI, CAGR, or risk assessment.
 
 
 ---
