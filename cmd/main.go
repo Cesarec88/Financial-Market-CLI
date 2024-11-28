@@ -1,9 +1,9 @@
 package main
 
 import (
-	"financial-market-cli/internal/api"
-	"financial-market-cli/internal/config"
-	"financial-market-cli/internal/handler"
+	"sheldon/internal/api"
+	"sheldon/internal/config"
+	"sheldon/internal/handler"
 	"flag"
 	"fmt"
 	"log"

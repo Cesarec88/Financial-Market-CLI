@@ -23,8 +23,8 @@ The **Financial Market CLI** is a lightweight, command-line application that fet
 
 1. Clone the repository:
    ```bash
-   git clone git@github.com:Cesarec88/Financial-Market-CLI.git
-   cd financial-market-cli
+   git clone git@github.com:Cesarec88/sheldon.git
+   cd sheldon
    ```
 
 2. Install dependencies:
@@ -41,7 +41,7 @@ The **Financial Market CLI** is a lightweight, command-line application that fet
 
 4. Build the application:
    ```bash
-   go build -o financial-market-cli cmd/main.go
+   go build -o sheldon cmd/main.go
    ```
 
 ---
@@ -50,12 +50,12 @@ The **Financial Market CLI** is a lightweight, command-line application that fet
 
 Run the CLI with the `-symbol` flag to query stock data:
 ```bash
-./financial-market-cli -symbol=<stock_symbol>
+./sheldon -symbol=<stock_symbol>
 ```
 
 ### **Example**
 ```bash
-./financial-market-cli -symbol=IBM
+./sheldon -symbol=IBM
 ```
 Output:
 ```json
@@ -78,16 +78,16 @@ go test ./...
 
 Expected output:
 ```
-ok  	financial-market-cli/internal/config   0.XXXs
-ok  	financial-market-cli/internal/api      0.XXXs
-ok  	financial-market-cli/internal/handler  0.XXXs
+ok  	sheldon/internal/config   0.XXXs
+ok  	sheldon/internal/api      0.XXXs
+ok  	sheldon/internal/handler  0.XXXs
 ```
 
 ---
 
 ## **Project Structure**
 ```
-financial-market-cli/
+sheldon/
 │
 ├── cmd/                  # Command-line interface
 │   └── main.go           # Entry point for the CLI

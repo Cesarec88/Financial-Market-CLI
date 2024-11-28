@@ -2,7 +2,7 @@ package api
 
 import (
 	"encoding/json"
-	"financial-market-cli/internal/config"
+	"sheldon/internal/config"
 	"fmt"
 	"net/http"
 )

@@ -2,7 +2,7 @@ package handler
 
 import (
 	"encoding/json"
-	"financial-market-cli/internal/api"
+	"sheldon/internal/api"
 	"net/http"
 	"net/http/httptest"
 	"reflect"
