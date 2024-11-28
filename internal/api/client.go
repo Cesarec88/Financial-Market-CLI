@@ -21,6 +21,7 @@ func NewClient(cfg *config.Config) *Client {
 	}
 }
 
+// GetStockQuote fetches the stock data using the given ticker.
 func (c *Client) GetStockQuote(symbol string) (map[string]interface{}, error) {
 	url := fmt.Sprintf("%s?function=GLOBAL_QUOTE&symbol=%s&apikey=%s", c.BaseURL, symbol, c.APIKey)
 	resp, err := c.HTTPClient.Get(url)
@@ -42,7 +43,7 @@ func (c *Client) GetStockQuote(symbol string) (map[string]interface{}, error) {
 	return result, nil
 }
 
-// GetStockDataHistory fetches historical stock data using the time-series endpoints
+// GetStockDataHistory fetches historical stock data using the time-series endpoints.
 func (c *Client) GetStockDataHistory(symbol string, limit int, delta string) (map[string]interface{}, error) {
 	// Determine the function and interval based on delta
 	var function, interval string
